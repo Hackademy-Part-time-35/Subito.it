@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presto la tua villa per la vacanza</title>
+  
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- my css -->
+  <link rel="stylesheet" href="styles/style.css">
+  
+</head>
+<body>
+  
+  <div class="container-fluid">
+    
+    <header>
+      <!-- NavBar -->
+      <nav class="navbar navbar-expand-md my-bg_nav_color">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <i class="fa-solid fa-house-flood-water my-font_logo"></i>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link change_color_text " aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link change_color_text" href="#">Announcments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link change_color_text" href="#">Chi siamo?</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- EndNavBar -->
+      
+      <!-- metodo per mettere una immagine background con le posizioni -->
+      <!-- <div class="position-relative">
+        <img class="img-fluid" src="pics/myVillaPic.jpg" alt="">
+        
+        <div class="position-absolute top-0 text-center w-100">
+          <h1>Presto.IT</h1>
+          <h2>La tua villa dei sogni è qui!</h2>
+        </div>
+      </div> -->
+      
+      <!-- fine primo esempio -->
+      <img src="pics/myVillaPic.jpg" class="d-none" alt="ville">
+      <div class="d-flex my_bg-header justify-content-center align-items-start cont-img-max-width">
+        <div class="text-center">
+          <h1>Presto.IT</h1>
+          <h2>La tua villa dei sogni è qui!</h2>
+        </div>
+      </div>
+    </header>
+    
+    <main class="row mt-4">
+      
+      <div class="col-lg-2">
+        <!-- lateral search accordion -->
+
+        <h3 style="color: blue;"> Cerca per: </h3>
+
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed my-accordion_header" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Categorie
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed my-accordion_header" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Prezzo
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed my-accordion_header" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Parola
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end lateral search accordion -->
+      </div>
+      
+      <div class="col-lg-10">
+
+        <div class="row">
+          <!-- items inside the menu -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card mb-2 my-cards_color cards-shadow">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <h3 class="m-2">Title house</h5>
+                  <p class="card-text m-2">description of the house.</p>
+                  <a href="#" class="btn btn-primary m-2"><p>Link to the article</p></a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card mb-2 my-cards_color cards-shadow">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h3 class="m-2">Title house</h5>
+                    <p class="card-text m-2">description of the house.</p>
+                    <a href="#" class="btn btn-primary m-2"><p>Link to the article</p></a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mb-2 my-cards_color cards-shadow">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h3 class="m-2">Title house</h5>
+                      <p class="card-text m-2">description of the house.</p>
+                      <a href="#" class="btn btn-primary m-2"><p>Link to the article</p></a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-4">
+                  <div class="card mb-2 my-cards_color cards-shadow">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h3 class="m-2">Title house</h5>
+                        <p class="card-text m-2">description of the house.</p>
+                        <a href="#" class="btn btn-primary m-2"><p>Link to the article</p></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- end -->
+
+              </div>
+              
+            </main>
+            
+            <footer>
+              
+            </footer>
+            
+          </div>
+          
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+          
+          <script src="javascripts/main.js"></script>
+          
+        </body>
+        </html>

@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&family=Roboto:ital@0;1&display=swap');
+
+:root
+{
+    --my-title: #DBF227;
+    --my-background:#042940;
+    --my-para:#D6D58E;
+    --my-background-2: #005C53;
+    --my-para-2: #9FC131;
+    --white: #ffffff;
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    /* background-color: var(--my-background); */
+}
+
+body
+{
+    background: rgb(219,242,39);
+    background: linear-gradient(120deg, rgba(219,242,39,1) 0%, rgba(159,193,49,1) 35%, rgba(4,41,64,1) 70%);
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    font-family: "Ojuju", sans-serif;
+    color: var(--my-title);
+}
+
+p, ul 
+{
+    font-family: "Roboto", sans-serif;
+    color: var(--my-para);
+    font-size: 1.5rem;
+}
+
+.change_color_text
+{
+    color: var(--my-para);
+}
+
+/* ------------------- header ---------------------- */
+.fluid
+{
+    width: 80vw;
+}
+
+.my-font_logo
+{
+    font-size: 3rem;
+    color: var(--my-title);
+}
+
+.my-bg_nav_color
+{
+    background-color: var(--my-background-2);
+}
+
+.fixed-postion
+{
+    position: fixed;
+}
+
+.my_bg-header
+{
+    background-image: url(../pics/myVillaPic.jpg);
+    height: 100vh;
+}
+
+.my_bg-header h1
+{
+    border-radius: 20px 20px 0 0;
+    background-color: rgba(30, 90, 30, 0.5);
+    margin: 0;
+}
+
+.my_bg-header h2
+{
+    border-radius:0 0 20px 20px;
+    background-color: rgba(30, 90, 30, 0.5);
+    margin: 0;
+    padding: 5%;
+}
+
+.cont-img-max-width
+{
+    max-height: 100vh;
+}
+
+/* ----------------------- end header ---------------------- */
+
+/* -------------------------------main------------------------------- */
+
+.my-accordion_header
+{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.my-cards_color
+{
+    background-color: rgba(166,33,33,0.4);
+}
+
+@keyframes deleteShadow 
+{
+    from { box-shadow: 5px 5px 10px 1px #9FC131; }
+    to {box-shadow: 0 0 0 0 0; }
+}
+
+@keyframes restoreShadow
+{
+    from {box-shadow: 0 0 0 0 0; }
+    to { box-shadow: 5px 5px 10px 1px #9FC131; }
+}
+
+.cards-shadow
+{
+    /* box-shadow: 5px 5px 10px 1px #9FC131; */
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+.cards-shadow :hover 
+{
+    animation-name: deleteShadow;
+}
+
+.cards-shadow:not(:hover)
+{
+    animation-name: restoreShadow;
+}
+
+
+/* -----------------------------------end main------------------------------- */

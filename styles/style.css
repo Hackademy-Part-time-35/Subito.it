@@ -136,5 +136,29 @@ p, ul
     animation-name: restoreShadow;
 }
 
+.card-top-position
+{
+    top: -300px;
+}
 
 /* -----------------------------------end main------------------------------- */
+
+#i_nostri_numeri h2
+{
+    color:var(--my-para);
+    font-size: 3rem;
+}
+
+#i_nostri_numeri p
+{
+    margin-left: 4rem;
+    font-size: 1.8rem;
+}
+
+#i_nostri_numeri span
+{
+    font-size: 2.5rem;
+    color: var(--my-title);
+}
+
+/* -----------------------------------------annunci----------------------------------------------- */

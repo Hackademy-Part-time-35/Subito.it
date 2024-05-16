@@ -6,17 +6,16 @@
 let cont_annunci = document.querySelector("#cont_annunci");
 let region_filter = document.querySelector("#region_filter")
 
-let Puglia = "Puglia";
-let Valle = "valle d'aosta";
-let Lombardia = "Lombardia";
+let min_number = 0;
+let max_number = 0;
 
 fetch("./dati/dates.json")
 .then(response => response.json())
 .then(data => {
-    function makeCardAnnunce()
+    function makeCardAnnunce(array_annunci)
     {
-        
-        data.forEach(annuncio => 
+        cont_annunci.innerHTML = " ";
+        array_annunci.forEach(annuncio => 
             {
                 let colonna = document.createElement("div");
                 
@@ -38,93 +37,89 @@ fetch("./dati/dates.json")
             
         }
         
-        function removeDuplicate(nameToFind)
+        function creaRadioRegioni()
         {
-            // array vuoto per inserire i miei nomi unici
-            let regionNames = [];
-        
-            // itero i dati all'interno del mio json
-            data.forEach((nome) => 
+            let elencoUnicheRegioni = [];
+            
+            data.forEach((annuncio) =>
+                {
+                if(!elencoUnicheRegioni.includes(annuncio.Regione))
                     {
-                    // check per controllare se il nome e presente dentro il mio array
-                if(!regionNames.includes(nome.Regione))
-                        {
-                    regionNames.push(nome.Regione);
-        
+                    elencoUnicheRegioni.push(annuncio.Regione);
                 }
+                
             });
-        
-            // check per controllare il nome che sto cercando se e presente dentro l'array
-            if(regionNames.includes(nameToFind))
-                    {
-                return nameToFind;
-                // se e presente ritorno il valore
-            }
-            else
-            {
-                console.log("the name isnt available or already present");
-            }
+            
+            return elencoUnicheRegioni;
         }
         
         function makeFilterAnnunce()
         {
-            let region_1 = removeDuplicate(Puglia);
-            let region_2 = removeDuplicate(Valle);
-            let region_3 = removeDuplicate(Lombardia);
+            let myRegions = creaRadioRegioni();
             
-            let regions = [region_1, region_2, region_3];
-            
-            regions.forEach((regione, index) => 
+            myRegions.forEach((regions) => 
                 {
                 let checkBox = document.createElement("div");
+                checkBox.classList.add("form-check");
                 
                 checkBox.innerHTML = `
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index}">
-                <label class="form-check-label" for="flexCheckDefault${index}">
-                <p class="text-dark">${regione}</p>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="${regions}">
+                <label class="form-check-label" for="${regions}">
+                <p class="text-dark">${regions}</p>
                 </label>
-                </div>
                 `;
                 
                 region_filter.appendChild(checkBox);
             });
-        }   
+        }
         
+        function filtraRegione(regione, minValue, maxValue)
+        {
+            // nessun filtro
+            if(regione == 'all' && minValue == 0 && maxValue == 0)
+                {
+                makeCardAnnunce(data);
+            }
+            else
+            {
+                // filtro solo per regione
+                if(regione != "all" && minValue == 0 && maxValue == 0)
+                    {
+                    let annunci_filtrati = data.filter(annuncio => annuncio.Regione == regione);
+                    makeCardAnnunce(annunci_filtrati);
+                }
+                // filtro solo per valore
+                else if(regione == 'all' && (minValue != 0 || minValue == 0) && maxValue != 0)
+                    {
+                    let annunci_filtrati_byNumbers = data.filter(annuncio => annuncio.Prezzo > minValue && annuncio.Prezzo < maxValue);
+                    makeCardAnnunce(annunci_filtrati_byNumbers);
+                }
+                // filtro per regione e valore
+                else if(regione != "all" && (minValue != 0 || minValue == 0) && maxValue != 0)
+                {
+                    let annunci_fully_filtrati = data.filter(annuncio => annuncio.Regione == regione && annuncio.Prezzo > minValue && annuncio.Prezzo < maxValue);
+                    makeCardAnnunce(annunci_fully_filtrati);
+                }
+            }
+            
+        }
         
-        makeCardAnnunce();
-        makeFilterAnnunce();
-        getRegionsName();
+        makeFilterAnnunce();        
+        filtraRegione("all",min_number,max_number);
         
-    });
+        let my_radio_region = document.querySelectorAll(".form-check-input");
+        
+        my_radio_region.forEach((singleRadio)=> 
+            {
+                singleRadio.addEventListener("click", () =>
+                    {
+                    min_number = document.querySelector("#min_number").value;
+                    max_number = document.querySelector("#max_number").value;
+                    
+                    let region_selected = singleRadio.id;
+                    filtraRegione(region_selected, min_number, max_number);
+                });
+            });
+        });
     
     
-    // function makeFilterAnnunce()
-    // {
-    //     let region_1 = "Valle d'aosta";
-    //     let region_2 = "Puglia";
-    //     let region_3 = "Lombardia";
-    
-    //     let regions = [region_1, region_2, region_3];
-    //     console.log(regions);
-    
-    //     regions.forEach((region, index) => 
-        //         {
-    
-    //         let checkBox = document.createElement("div");
-    
-    //         checkBox.innerHTML = `
-    //         <div class="form-check">
-    //         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault${index}">
-    //         <label class="form-check-label" for="flexCheckDefault${index}">
-    //         <p class="text-dark">${region}</p>
-    //         </label>
-    //         </div>
-    //         `;
-    
-    //         region_filter.appendChild(checkBox);     
-    //     });
-    
-    // }
-    
-    // makeFilterAnnunce();
